@@ -1,0 +1,30 @@
+<swiper class="photo-swiper" indicator-dots='true' autoplay="true">
+  <swiper-item class="photo-swiper" wx:for="{{banner}}">
+    <image class="photo-swiper" mode='scaleToFill' src='{{item.url}}' 
+    data-banner-id='{{item.id}}' bindtap='bannerUrl'></image>
+  </swiper-item>
+</swiper>
+<scroll-view scroll-y scroll-y="true" style="height:910rpx; margin-top: 10rpx">
+  <view wx:for="{{activityInfo}}" bindtap='trans' data-activity-id="{{index}}">
+    <text wx:if="{{item.showTime}}" class="time">{{item.timeSimple}}</text>
+    <view class='avtivity'>
+      <image src='{{item.postUrl}}' mode='scaleToFill' class='post'></image>
+      <view class='word'>
+        <text style='font-weight: bold; font-size: 42rpx'>{{item.name}}</text>
+        <text style='color: gray; font-size: 32rpx'>{{item.time}}</text>
+        <text style='font-size: 32rpx'>{{item.location}}</text>
+        <view class='remark'>
+          <view wx:for="{{item.remark}}">
+              <text class='remark-border'>{{item}}</text>
+              <text decode="true" space="true">&nbsp;&nbsp;</text>
+          </view>
+        </view>
+        <view class='line'></view>
+      </view>
+      <image wx:if="{{item.ifLike==1}}" src='/image/xin2.png' class="icon" 
+      data-ac-id='{{index}}' catchtap="switchXin"></image>
+      <image wx:else src='/image/xin1.png' class="icon"
+      data-ac-id='{{index}}' catchtap="switchXin"></image>
+    </view>
+  </view>
+</scroll-view>

@@ -1,0 +1,46 @@
+
+
+
+
+<button open-type="getUserInfo"></button> 
+
+<view class="contain">
+  <view class="userinfo">
+        <image
+            class="userinfo-avatar"
+            src="{{logged ? userInfo.avatarUrl : './user-unlogin.png'}}"
+            background-size="cover"
+        ></image>
+        <view>
+            <button class="userinfo-nickname" wx:if="{{!logged}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">点击登录</button>
+            <text class="userinfo-nickname" wx:else>{{userInfo.nickName}}</text>
+        </view>
+  </view>
+  <button wx:if="{{auth==1}}"bindtap='submit' class="button" type="primary" plain="true">上传活动</button>
+</view>
+<view class="counter">
+  <text> </text>
+  <text>共有{{counter}}个活动</text>
+</view>
+<scroll-view scroll-y scroll-y="true" style="margin-top:20rpx">
+  <view wx:for="{{activityInfo}}" wx:if="{{item.ifLike==1}}" bindtap='trans' data-activity-id="{{index}}">
+    <text wx:if="{{item.showTime==1}}" class="time">{{item.timeSimple}}</text>
+    <view class='avtivity'>
+      <image src='{{item.postUrl}}' mode='scaleToFill' class='post'></image>
+      <view class='word'>
+        <text style='font-weight: bold; font-size: 42rpx'>{{item.name}}</text>
+        <text style='color: gray; font-size: 32rpx'>{{item.time}}</text>
+        <text style='font-size: 32rpx'>{{item.location}}</text>
+        <view class='remark'>
+          <view wx:for="{{item.remark}}">
+              <text class='remark-border'>{{item}}</text>
+              <text decode="true" space="true">&nbsp;&nbsp;</text>
+          </view>
+        </view>
+        <view class='line'></view>
+      </view>
+      <image src='/image/xin2.png' class="icon" data-movie-id='{{index}}' catchtap="clickIcon1"></image>
+    </view>
+  </view>
+
+</scroll-view>

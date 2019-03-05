@@ -1,0 +1,41 @@
+<view class='container' style='margin-top: 20rpx'>
+  <view class='contain'>
+    <text style='margin-left:20rpx'>活动名称</text>
+    <input style='margin-left:30rpx' placeholder="请输入活动名称" bindinput="nameInput"/>
+  </view>
+  <view class='contain'>
+    <view style='margin-left:20rpx'>日期</view>
+    <picker style='margin-left:100rpx' mode="date" value="{{date}}" start="2018-06-10" end="2019-06-10" bindchange="bindDateChange">
+      <view class="weui-input">{{date}}</view>
+    </picker>
+  </view>
+  <view class='contain'>
+    <view style='margin-left:20rpx'>时间</view>
+    <picker style='margin-left:100rpx' mode="time" value="{{time}}" start="8:00" end="21:00" bindchange="bindTimeChange">
+      <view class="weui-input">{{time}}</view>
+    </picker>
+  </view>
+  <view class='contain'>
+    <text style='margin-left:20rpx'>地点</text>
+    <input style='margin-left:100rpx' placeholder="请输入活动地点" bindinput="locationInput"/>
+  </view>
+  <view class='contain'>
+    <text style='margin-left: 20rpx'>主办方</text>
+    <input style='margin-left: 65rpx' placeholder="请输入主办方"  bindinput="hostInput"/>
+  </view>
+  <view style='margin-top: 20rpx'>
+    <text style='margin-left: -335rpx; color: gray; font-size: 35rpx'>注意事项</text>
+  </view>
+  <view class='contain'>
+    <textarea placeholder="请输入文本" style="height: 3.3em; margin-left:20rpx" bindinput="attentionInput"/>
+    <view style='margin-top: 100rpx'>0/50</view>
+  </view>
+  <view style='margin-top: 20rpx'>
+    <text style='margin-left: -335rpx; color: gray; font-size: 35rpx'>活动介绍</text>
+  </view>
+  <view class='contain'>
+    <textarea placeholder="请输入文本" style="height: 3em; margin-left:20rpx" bindinput="introInput"/>
+    <view style='margin-top: 160rpx'>0/200</view>
+  </view>
+  <button type="primary" bindtap="showTopTips" style='margin-top: 20rpx'>确认提交</button>
+</view>

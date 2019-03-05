@@ -1,0 +1,50 @@
+<scroll-view scroll-y scroll-y="true" style="height: 1110rpx;">
+  <!--活动信息栏-->
+  <view class='title'>
+    <image src='{{item.postUrl}}' mode='scaleToFill' class='post'></image>
+    <view class='word'>
+      <text style='font-weight: bold; font-size: 45rpx'>{{item.name}}</text>
+      <text></text>
+      <text></text>
+      <text style='color: gray; font-size: 35rpx'>{{item.time}}</text>
+      <view class='location'>
+        <image src='material/1.png' style='width:48rpx; height:48rpx' mode='scaleToFill'></image>
+        <text decode="true" space="true">&nbsp;&nbsp;</text>
+        <text>{{item.location}}</text>
+      </view>
+      <text></text>
+    </view>
+  </view>
+  <!--主办方-->
+  <view class='host'>
+    <text>主办单位</text>
+    <text class='context'>{{item.host}}</text>
+  </view>
+  <!--活动简介-->
+  <view bindtap="more" class='contextBag'>
+    <view class='briefTitle'>
+      <text>活动简介</text>
+      <text style='font-size: 35rpx; color: gray'>更多></text>
+    </view>
+    <view class='border'></view>
+    <text class='context'>{{item.detail}}</text>
+  </view>
+  <!--活动须知-->
+  <view class='contextBag'>
+    <text>活动须知</text>
+    <view class='border'></view>
+    <view class='context' wx:for="{{item.remarkDetail}}">
+      <text>{{item}}</text>
+    </view>
+  </view>
+</scroll-view>
+<view class='switch' bindtap='switchXin'>
+  <block wx:if="{{item.ifLike}}">
+    <text style='font-weight: bold; color: white; font-size: 43rpx'>已选择</text>
+    <image src='/image/xin2.png' class="icon"></image>
+  </block>
+  <block wx:else>
+    <text style='font-weight: bold; color: white; font-size: 43rpx'>未选择</text>
+    <image src='/image/xin1.png' class="icon"></image>
+  </block>
+</view>

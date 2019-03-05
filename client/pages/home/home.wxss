@@ -1,0 +1,10 @@
+page {  
+  display: block;  
+  min-height: 100%;  
+  background-color: #f8f6fb;  
+}  
+
+.photo-swiper{
+  height: 200rpx; 
+  width: 100%;
+}

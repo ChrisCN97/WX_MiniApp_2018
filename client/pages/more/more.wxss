@@ -1,0 +1,6 @@
+.context{
+  font-size: 36rpx;
+  font-weight: 380;
+  display: flex;
+  margin: 60rpx 70rpx;
+}
